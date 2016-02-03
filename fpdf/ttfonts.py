@@ -793,8 +793,9 @@ class TTFontFile:
             self.add('maxp', maxp)
 
             # OS/2 - OS/2
-            os2 = self.get_table('OS/2')
-            self.add('OS/2', os2 )
+            if 'OS/2' in self.tables:
+                os2 = self.get_table('OS/2')
+                self.add('OS/2', os2 )
 
         # Put the TTF file together
         stm = self.endTTFile('')
